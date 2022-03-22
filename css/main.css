@@ -1,0 +1,201 @@
+/*  Algunas reglas para los estilos:
+1. Posicionamiento(display,absolute,relative..)
+2. modelo de caja
+3.TIpografia(fuentes,tamaño)
+4.visuales (radius,background, sombras...)
+5. Otros(micelaneous)
+*/
+
+:root {
+    /*Primary*/
+    --Scissors_Gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+    --Paper_Gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+    --Rock_Gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+    /*Neutral*/
+    --Dark_Text: hsl(229, 25%, 31%);
+    --Score_Text: hsl(229, 64%, 46%);
+    --Header_Outline: hsl(217, 16%, 45%);
+    /*Background*/
+    --Radial_Gradient: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.rulesContainer {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.rules {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 84%;
+}
+
+.rules_title {
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: var(--Dark_Text)
+}
+
+.rules_close {
+    display: flex;
+    align-self: end;
+}
+
+.container_close {
+    display: flex;
+    height: 80px;
+}
+
+
+/* Game */
+
+.gameOptionsContainer {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100%;
+    background: radial-gradient(var(--Radial_Gradient))
+}
+
+.gameOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 360px;
+    height: 90%;
+}
+
+.gameOptions_score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    width: 80%;
+    height: 100px;
+    border: 3px solid var(--Header_Outline);
+    border-radius: 12px;
+}
+
+.gameOptions_score img {
+    width: 90px;
+    height: 60px;
+}
+
+.scoreContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    color: var(--Score_Text);
+    background-color: white;
+    border-radius: 4px;
+}
+
+.scoreContainer_Title {
+    margin-bottom: 6px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.scoreContainer_Number {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--Dark_Text);
+}
+
+.RockPaperScissors_Triangulo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 170px;
+    width: 250px;
+    background-image: url(../Assets/images/bg-triangle.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.background_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.RockPaperScissors_Triangulo .background_icon figure {
+    height: 80px;
+    width: 80px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: inset 0px 32px 4px -27px rgba(84, 84, 84, 0.53);
+}
+
+.background_paper,
+.background_scissors {
+    margin-top: -32px;
+}
+
+.background_paper {
+    background: radial-gradient(var(--Paper_Gradient));
+}
+
+.background_scissors {
+    background: radial-gradient(var(--Scissors_Gradient));
+}
+
+.background_icon figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background_icon figure img {
+    height: 40px;
+    width: 34px;
+}
+
+.background_rock {
+    grid-column: 1/3;
+    margin: 0 auto;
+    background: radial-gradient(var(--Rock_Gradient));
+}
+
+.RockPaperScissors_button {
+    width: 100%;
+    height: 40px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 8px;
+    outline: none;
+}
+
+.button_container {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 100px;
+}
