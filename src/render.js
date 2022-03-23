@@ -33,30 +33,8 @@ export class Render {
         </div>
         
         </div>
-        <div class="RockPaperScissors"> 
-         <div class="RockPaperScissors_Triangulo">
-            
-     <div class="background_icon background_paper" id="2">
-             <figure class="containerPaper" >
-             <img src="../Assets/images/icon-paper.svg">
-             </figure>
-     </div>
-
-     <div class="background_icon background_scissors" id="3">
-             <figure class="containerScissors" >
-             <img src="../Assets/images/icon-scissors.svg">
-             </figure>
-     </div>
-
-     <div class="background_icon background_rock" id="1">
-             <figure class="containerRock" >
-             <img src="../Assets/images/icon-rock.svg">
-            </figure> 
-     </div>   
-       
-        </div>
-        
-   
+        <div class="RockPaperScissors" id="Actions"> 
+         
         </div>
         <div class="button_container">
         <button class="RockPaperScissors_button" id="button_rules">RULES</button>
@@ -74,6 +52,73 @@ export class Render {
         <p class="scoreContainer_Title"> SCORE </p>
         <p class="scoreContainer_Number"> ${scoreNumber} </p>
     `
+
+    }
+
+    hiddeOrShow(id) {
+        document.getElementById(`${id}`).addEventListener("click", () => {
+            let nameId = id == "button_rules"
+            document.getElementById("rules").style.display = nameId ? `grid` : `none`
+            document.getElementById("gameOptions").style.display = nameId ? `none` : `flex`
+        })
+    }
+
+    renderAction() {
+        document.getElementById("Actions").innerHTML = `
+        <div class="RockPaperScissors_Triangulo">
+            
+            <div class="background_icon background_paper" id="2">
+                    <figure class="containerPaper" >
+                    <img src="../Assets/images/icon-paper.svg">
+                    </figure>
+            </div>
+       
+            <div class="background_icon background_scissors" id="3">
+                    <figure class="containerScissors" >
+                    <img src="../Assets/images/icon-scissors.svg">
+                    </figure>
+            </div>
+       
+            <div class="background_icon background_rock" id="1">
+                    <figure class="containerRock" >
+                    <img src="../Assets/images/icon-rock.svg">
+                   </figure> 
+            </div>   
+              
+               </div>
+               
+          
+        `
+    }
+
+    renderUserVsHouse(imgUser, backgroundUser, idUser, imgHouse, backgroundhouse, idHouse, win) {
+        document.getElementById("Actions").innerHTML = `
+        <div class="UserVsHouse">
+            <div>
+         <div class="background_icon ${backgroundUser}" id="${idUser}">
+                    <figure class="containerPaper" >
+                    <img src="${imgUser}">
+                    </figure>
+            </div>
+            <p>YOU PICKED</p>
+    </div>
+ <div>
+            <div class="background_icon ${backgroundhouse}" id="${idHouse}">
+                    <figure class="containerScissors" >
+                    <img src="${imgHouse}">
+                    </figure>
+                   
+            </div>
+            <p>THE HOUSE PICKED</p>
+    </div>
+
+            </div>
+            <div class="PlayAgain_container"> 
+              <p>${win? "YOU WIN":"YOU LOSE"}</p>
+             <button class="button_playAgain" id="playAgain">  PLAY AGAIN</button>
+           </div>
+        
+        `
 
     }
 }

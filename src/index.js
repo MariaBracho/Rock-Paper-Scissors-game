@@ -1,25 +1,37 @@
 import { Render } from "../src/render.js";
+import { Game } from "../src/game.js"
+import { GameOptions } from "../src/utils/gameOptions.js"
 
 const render = new Render()
+const game = new Game()
 
 render.renderViewFirst()
 render.rederRules()
 render.renderGameOptions()
 render.renderScoreNumber()
+render.renderAction()
 
-console.log("holaaaa")
+
+render.hiddeOrShow("button_rules")
+render.hiddeOrShow("button_close")
 
 
-document.getElementById("2").addEventListener("click", () => {
-    console.log("soy una option!!!!")
-})
 
-document.getElementById("button_rules").addEventListener("click", () => {
-    document.getElementById("rules").style.display = `grid`
-    document.getElementById("gameOptions").style.display = `none`
-})
 
-document.getElementById("button_close").addEventListener("click", () => {
-    document.getElementById("rules").style.display = `none`
-    document.getElementById("gameOptions").style.display = `flex`
-})
+
+const ActionId = Object.values(GameOptions)
+ActionId.forEach(Action => {
+    let action = document.getElementById(Action.id)
+
+    action.addEventListener("click", () => {
+
+        game.StartGame(Action.id)
+        render.renderUserVsHouse(Action.url, Action.background, Action.id, game.getHouseAction().url, game.getHouseAction().background, game.getHouseAction().id)
+
+        document.getElementById("playAgain").addEventListener("click", () => {
+            render.renderAction()
+            document.getElementById("3").addEventListener("click", () => console.log("heyyyy"))
+        })
+
+    })
+});
