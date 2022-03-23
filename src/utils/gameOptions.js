@@ -2,7 +2,7 @@ export const GameOptions = {
     ROCK: {
         id: 1,
         name: "rock",
-        win: 3,
+        win: 4,
         url: "../../Assets/images/icon-rock.svg",
         background: "background_rock"
 
@@ -10,14 +10,14 @@ export const GameOptions = {
     PAPER: {
         id: 2,
         name: "paper",
-        win: 5,
+        win: 3,
         url: "../../Assets/images/icon-paper.svg",
         background: "background_paper"
     },
     SCISSORS: {
         id: 3,
         name: "scissors",
-        win: 4,
+        win: 5,
         url: "../../Assets/images/icon-scissors.svg",
         background: "background_scissors"
     },

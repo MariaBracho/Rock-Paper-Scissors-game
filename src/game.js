@@ -7,13 +7,9 @@ export class Game {
     constructor(score = 12) {
         this.score = score
         this.listAction = listAction
-        this.userWin = null
+        this.userWin = ""
         this.Action_House = null
 
-    }
-    userWinScore() {
-        let win = this.userWin ? this.score += 1 : this.score -= 1
-        return win
     }
 
     getAction(id) {
@@ -21,7 +17,7 @@ export class Game {
     }
 
     getstatus() {
-        console.log(this.userWin)
+        return this.userWin
     }
 
     getHouseAction() {
@@ -37,12 +33,28 @@ export class Game {
 
 
         console.log(house.name, user.name)
-        console.log(house.id)
+
 
         let adictionResult = user.id + house.id
 
-        this.userWin = user.win === adictionResult
-        console.log(this.userWinScore(), "score")
+        if (user.id === house.id) {
+            this.score += 0
+            this.userWin = "EMPATE"
+            return this.userWin
+        }
+        if (user.id != house.id) {
+            if (user.win === adictionResult) {
+                this.score += 1
+                this.userWin = "YOU WIN"
+                return this.userWin
+            } else {
+                this.score -= 1
+                this.userWin = "YOU LOSE"
+                return this.userWin
+            }
+        }
+        console.log(user.id, house.id)
+        console.log(this.score, "score")
         console.log(this.userWin)
 
     }

@@ -91,10 +91,10 @@ export class Render {
         `
     }
 
-    renderUserVsHouse(imgUser, backgroundUser, idUser, imgHouse, backgroundhouse, idHouse, win) {
+    renderUserVsHouse(imgUser, backgroundUser, idUser) {
         document.getElementById("Actions").innerHTML = `
         <div class="UserVsHouse">
-            <div>
+            <div >
          <div class="background_icon ${backgroundUser}" id="${idUser}">
                     <figure class="containerPaper" >
                     <img src="${imgUser}">
@@ -102,23 +102,47 @@ export class Render {
             </div>
             <p>YOU PICKED</p>
     </div>
- <div>
-            <div class="background_icon ${backgroundhouse}" id="${idHouse}">
+ <div id="housePiked">
+            
+    </div>
+
+            </div>
+            <div id="PlayAgainContainer"></div>
+           
+        
+        `
+
+    }
+    renderHousePiked(imgHouse, backgroundhouse, idHouse) {
+        document.getElementById("housePiked").innerHTML = `
+        <div class="background_icon ${backgroundhouse}" id="${idHouse}">
                     <figure class="containerScissors" >
                     <img src="${imgHouse}">
                     </figure>
                    
             </div>
             <p>THE HOUSE PICKED</p>
-    </div>
+        `
+    }
 
-            </div>
-            <div class="PlayAgain_container"> 
-              <p>${win? "YOU WIN":"YOU LOSE"}</p>
+    renderPlayAgain(win) {
+        document.getElementById("PlayAgainContainer").innerHTML = `
+           <div class="PlayAgain_container"> 
+              <p>${win}</p>
              <button class="button_playAgain" id="playAgain">  PLAY AGAIN</button>
            </div>
         
         `
-
     }
+
+    renderHousePikedGray() {
+        document.getElementById("housePiked").innerHTML = `
+        <div class=" backgroundGray">
+                
+            </div>
+        
+        `
+    }
+
+
 }
