@@ -33,10 +33,10 @@ const GameAll = () => {
             setTimeout(function() {
                 render.renderHousePiked(game.Action_House.url, game.Action_House.background, game.Action_House.id)
                 if (game.userWin == "YOU WIN") {
-                    document.getElementById(Action.id).style = `box-shadow: 1px 1px 35px 18px #7b7b7b`
+                    document.getElementById(Action.id).style = `box-shadow: 1px 1px 35px 18px #7b7b7b;`
                 }
                 if (game.userWin == "YOU LOSE") {
-                    document.getElementById(game.Action_House).style = `box-shadow: 1px 1px 35px 18px #7b7b7b`
+                    document.getElementById(game.Action_House).style = `box-shadow: 1px 1px 35px 18px #7b7b7b;`
 
                 }
             }, 1000)
