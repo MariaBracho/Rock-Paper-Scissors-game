@@ -31,10 +31,6 @@ export class Game {
         let house = this.getAction(houseAction)
         this.Action_House = house
 
-
-        console.log(house.name, user.name)
-
-
         let adictionResult = user.id + house.id
 
         if (user.id === house.id) {
@@ -46,6 +42,7 @@ export class Game {
             if (user.win === adictionResult) {
                 this.score += 1
                 this.userWin = "YOU WIN"
+
                 return this.userWin
             } else {
                 this.score -= 1
@@ -53,9 +50,7 @@ export class Game {
                 return this.userWin
             }
         }
-        console.log(user.id, house.id)
-        console.log(this.score, "score")
-        console.log(this.userWin)
+
 
     }
 

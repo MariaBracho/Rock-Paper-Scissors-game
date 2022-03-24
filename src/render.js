@@ -67,7 +67,7 @@ export class Render {
         document.getElementById("Actions").innerHTML = `
         <div class="RockPaperScissors_Triangulo">
             
-            <div class="background_icon background_paper" id="2">
+            <div class="background_icon background_paper " id="2">
                     <figure class="containerPaper" >
                     <img src="../Assets/images/icon-paper.svg">
                     </figure>
@@ -93,8 +93,8 @@ export class Render {
 
     renderUserVsHouse(imgUser, backgroundUser, idUser) {
         document.getElementById("Actions").innerHTML = `
-        <div class="UserVsHouse">
-            <div >
+        <div class="UserVsHouse" id="UserVsHouse">
+            <div class="userPicked">
          <div class="background_icon ${backgroundUser}" id="${idUser}">
                     <figure class="containerPaper" >
                     <img src="${imgUser}">
@@ -102,7 +102,8 @@ export class Render {
             </div>
             <p>YOU PICKED</p>
     </div>
- <div id="housePiked">
+    <div id="PlayAgainContainerDesktop" class="PlayAgainContainerDesktop"></div>
+ <div id="housePiked" class="housePiked">
             
     </div>
 
@@ -125,8 +126,8 @@ export class Render {
         `
     }
 
-    renderPlayAgain(win) {
-        document.getElementById("PlayAgainContainer").innerHTML = `
+    renderPlayAgain(win, id) {
+        document.getElementById(id).innerHTML = `
            <div class="PlayAgain_container"> 
               <p>${win}</p>
              <button class="button_playAgain" id="playAgain">  PLAY AGAIN</button>
@@ -134,6 +135,7 @@ export class Render {
         
         `
     }
+
 
     renderHousePikedGray() {
         document.getElementById("housePiked").innerHTML = `
