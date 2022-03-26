@@ -14,7 +14,9 @@ export class Render {
         <div class="rules">
         
         <p class="rules_title">RULES</p>
+        <figure class="rules-image-container">
         <img class=rules_image src="../Assets/images/image-rules.svg"> 
+        </figure>
         <div class="container_close">
         <img class="rules_close" id="button_close" src="../Assets/images/icon-close.svg"> 
     </div>
@@ -108,7 +110,7 @@ export class Render {
     </div>
 
             </div>
-            <div id="PlayAgainContainer"></div>
+            <div id="PlayAgainContainer" class="PlayAgainContainer"></div>
            
         
         `
@@ -126,11 +128,11 @@ export class Render {
         `
     }
 
-    renderPlayAgain(win, id) {
+    renderPlayAgain(win, id, idButton) {
         document.getElementById(id).innerHTML = `
            <div class="PlayAgain_container"> 
               <p>${win}</p>
-             <button class="button_playAgain" id="playAgain">  PLAY AGAIN</button>
+             <button class="button_playAgain" id="${idButton}">  PLAY AGAIN</button>
            </div>
         
         `
