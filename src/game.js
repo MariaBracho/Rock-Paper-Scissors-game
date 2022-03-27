@@ -1,37 +1,34 @@
 import { GameOptions } from "../src/utils/gameOptions.js"
 import { Random } from "../src/utils/maths.js"
 
-let listAction = Object.values(GameOptions)
+const defaultGameConfig = {
+    score: 12,
+    listOfActions: Object.values(GameOptions),
+}
 
-export class Game {
-    constructor(score = 12) {
-        this.score = score
-        this.listAction = listAction
+export class Game {12
+    constructor(config = defaultGameConfig) {
+        this.score = config.score
+        this.listAction = config.listOfActions
         this.userWin = ""
         this.Action_House = null
-
     }
 
     getAction(id) {
         return this.listAction.find((action) => action.id === id)
     }
 
-    getstatus() {
-        return this.userWin
-    }
+    getstatus = () => this.userWin
 
-    getHouseAction() {
-        return this.Action_House
-    }
+    getHouseAction = () => this.Action_House
 
-    StartGame(userAction) {
-        let houseAction = Random(1, 3)
-
-        let user = this.getAction(userAction)
-        let house = this.getAction(houseAction)
+    executeOptionSelectedByUser(userAction) {
+        const houseAction = Random(1, 3)
+        const user = this.getAction(userAction)
+        const house = this.getAction(houseAction)
         this.Action_House = house
 
-        let adictionResult = user.id + house.id
+        const adictionResult = user.id + house.id
 
         if (user.id === house.id) {
             this.score += 0

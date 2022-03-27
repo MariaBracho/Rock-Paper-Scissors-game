@@ -57,11 +57,10 @@ export class Render {
 
     }
 
-    hiddeOrShow(id) {
-        document.getElementById(`${id}`).addEventListener("click", () => {
-            let nameId = id == "button_rules"
-            document.getElementById("rules").style.display = nameId ? `grid` : `none`
-            document.getElementById("gameOptions").style.display = nameId ? `none` : `flex`
+    rulesClose() {
+        document.getElementById("button_close").addEventListener("click", () => {
+            document.getElementById("rules").style.display =  `none` 
+            document.getElementById("gameOptions").style.display = `flex` 
         })
     }
 
@@ -141,8 +140,10 @@ export class Render {
 
     renderHousePikedGray() {
         document.getElementById("housePiked").innerHTML = `
+        <div class="backgroundGrayContainer">
         <div class=" backgroundGray">
                 
+            </div>
             </div>
         
         `

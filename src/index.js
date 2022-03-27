@@ -12,20 +12,11 @@ render.renderScoreNumber()
 render.renderAction()
 
 
-render.hiddeOrShow("button_close")
-
-if (screen.width < 700) {
-    render.hiddeOrShow("button_rules")
-
-}
-
-
-let screenMobile = window.matchMedia(`(min-width:700px)`)
-
+render.rulesClose()
 
 const ActionId = Object.values(GameOptions)
 
-const GameAll = () => {
+const StartGame = () => {
 
 
     ActionId.forEach(Action => {
@@ -33,10 +24,7 @@ const GameAll = () => {
 
         action.addEventListener("click", () => {
 
-            let screenWidth = screen.width
-
-
-            game.StartGame(Action.id)
+            game.executeOptionSelectedByUser(Action.id)
             render.renderUserVsHouse(Action.url, Action.background, Action.id)
             render.renderHousePikedGray()
             setTimeout(function() {
@@ -48,19 +36,13 @@ const GameAll = () => {
                     document.getElementById(game.Action_House.id).style = `box-shadow: 1px 1px 35px 18px #7b7b7b;`
 
                 }
-            }, 1000)
-
-            screenWidth < 700 ? PlayAgainMobile() : PlayAgainDesktop()
+            }, 3000)
 
 
+             PlayAgainDesktop() 
+             PlayAgainMobile()
 
-            screenMobile.addListener(function(event) {
-
-                screenMobile.matches ? PlayAgainDesktop() : PlayAgainMobile()
-
-            })
-
-
+        
             render.renderScoreNumber(game.score)
 
         })
@@ -69,14 +51,14 @@ const GameAll = () => {
     });
 }
 
-GameAll()
+StartGame()
 document.getElementById("button_rules").addEventListener("click", () => {
     document.getElementById("rules").style.display = `grid`
 })
 
 export function play() {
     render.renderAction()
-    GameAll()
+    StartGame()
 }
 
 
@@ -86,7 +68,7 @@ export const PlayAgainMobile = () => {
         document.getElementById("playAgainMobile").addEventListener("click", play)
         document.getElementById("UserVsHouse").style.width = `100%`
 
-    }, 2000);
+    }, 4000);
 }
 
 
@@ -97,12 +79,7 @@ export const PlayAgainDesktop = () => {
         document.getElementById("UserVsHouse").style.width = `100%`
         document.getElementById("gameOptions").style.display = `flex`
 
-    }, 2000);
+    }, 4000);
 
 }
 
-document.getElementById("button_rules").addEventListener("click", () => {
-    if (screen.width < 700) {
-        document.getElementById("gameOptionsContainer").style.display = `none`
-    }
-})

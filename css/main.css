@@ -8,6 +8,7 @@
         
          :root {
             /*Primary*/
+            
             --Scissors_Gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
             --Paper_Gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
             --Rock_Gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
@@ -36,8 +37,12 @@
         .rulesContainer {
             display: grid;
             place-items: center;
-            height: 100vh;
-            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
         }
         
         .rules {
@@ -45,7 +50,7 @@
             place-items: center;
             min-width: 360px;
             width: 100%;
-            height: 84%;
+            height: 100%;
             background: white
         }
         
@@ -59,6 +64,7 @@
             display: flex;
             align-self: end;
             cursor: pointer;
+            filter: saturate(50);
         }
         
         .container_close {
@@ -267,13 +273,29 @@
         .button_playAgain:hover {
             color: rgb(245, 13, 91);
         }
+        .backgroundGrayContainer{
+            display: flex;
+            align-items: center;
+            height: 100px;
+            width: 80px;
+            border-radius: 50%;
+        }
         
         .backgroundGray {
-            height: 100px;
-            width: 100px;
+            height: 80px;
+            width: 80px;
             border-radius: 50%;
             background: #121939;
+            animation-name: backgroundGray;
+            animation-duration: 1.5s;
+            animation-timing-function: linear;
+            animation-iteration-count: 3;
         }
+        @keyframes backgroundGray {
+            0% {height: 70px; width: 70px;}
+            50%   {height: 80px; width: 80px;}
+            100% {height: 70px; width: 70px;}
+          }
         
         .PlayAgainContainerDesktop {
             display: none;
@@ -332,9 +354,24 @@
                 margin-top: 0;
             }
             .backgroundGray {
-                width: 150px;
-                height: 150px;
+                width: 145px;
+                height: 145px;
+                animation-name: backgroundGray;
+                animation-duration: 1.5s;
+                animation-timing-function: linear;
+                animation-iteration-count: 3;
             }
+            @keyframes backgroundGray{
+                0%   {height: 130px; width: 130px;}
+                50% {height: 145px; width:145px}
+                100% {height: 130px; width: 130px;}
+              }
+
+              .backgroundGrayContainer{
+                width: 145px;
+                height: 190px;
+
+              }
             .rulesContainer {
                 position: absolute;
                 z-index: 2;
